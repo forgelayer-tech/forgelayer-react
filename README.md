@@ -12,7 +12,7 @@ Drop a `<ForgeLayerButton>` anywhere in your React app and get a full crypto pay
 npm install forgelayer-react
 ```
 
-Requires React 17 or later. Pairs with [`forgelayer-node`](https://github.com/forgelayer/forgelayer-node) on the backend.
+Requires React 17 or later. Pairs with [`forgelayer-node`](https://github.com/forgelayer-tech/forgelayer-node) on the backend.
 
 ---
 
@@ -238,7 +238,7 @@ export default function Shop() {
 
 ## Backend
 
-This package is the frontend half. You need [`forgelayer-node`](https://github.com/forgelayer/forgelayer-node) on your Express server:
+This package is the frontend half. You need [`forgelayer-node`](https://github.com/forgelayer-tech/forgelayer-node) on your Express server:
 
 ```bash
 npm install forgelayer-node

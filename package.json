@@ -17,13 +17,13 @@
   ],
   "author": "ForgeLayer <support@forgelayer.io>",
   "license": "MIT",
-  "homepage": "https://github.com/forgelayer/forgelayer-react#readme",
+  "homepage": "https://github.com/forgelayer-tech/forgelayer-react#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/forgelayer/forgelayer-react.git"
+    "url": "git+https://github.com/forgelayer-tech/forgelayer-react.git"
   },
   "bugs": {
-    "url": "https://github.com/forgelayer/forgelayer-react/issues"
+    "url": "https://github.com/forgelayer-tech/forgelayer-react/issues"
   },
   "peerDependencies": {
     "react": ">=17.0.0",
