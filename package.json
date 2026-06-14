@@ -1,5 +1,5 @@
 {
-  "name": "@forgelayer/react",
+  "name": "@forgelayer-tech/react",
   "version": "1.0.0",
   "description": "React components for crypto checkout powered by ForgeLayer",
   "main": "dist/index.cjs.js",
