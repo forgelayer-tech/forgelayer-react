@@ -1,4 +1,4 @@
-# forgelayer-react
+# @forgelayer/react
 
 > React components for crypto checkout powered by [ForgeLayer](https://forgelayer.io).
 
@@ -9,17 +9,17 @@ Drop a `<ForgeLayerButton>` anywhere in your React app and get a full crypto pay
 ## Install
 
 ```bash
-npm install forgelayer-react
+npm install @forgelayer/react
 ```
 
-Requires React 17 or later. Pairs with [`forgelayer-node`](https://github.com/forgelayer-tech/forgelayer-node) on the backend.
+Requires React 17 or later. Pairs with [`@forgelayer/node`](https://github.com/forgelayer-tech/forgelayer-node) on the backend.
 
 ---
 
 ## Quick Start
 
 ```jsx
-import { ForgeLayerButton } from 'forgelayer-react';
+import { ForgeLayerButton } from '@forgelayer/react';
 
 export default function ProductPage() {
   return (
@@ -119,7 +119,7 @@ Self-contained button + modal. The simplest way to add crypto checkout.
 Hook for full control — use when you need to trigger checkout from your own button, form, or custom event.
 
 ```jsx
-import { useForgeLayerCheckout, ForgeLayerModal } from 'forgelayer-react';
+import { useForgeLayerCheckout, ForgeLayerModal } from '@forgelayer/react';
 
 function CustomCheckout() {
   const { modalState, order, timeLeft, error, open, close } = useForgeLayerCheckout({
@@ -204,7 +204,7 @@ The modal UI on its own. Used alongside `useForgeLayerCheckout` for custom layou
 ## Full Example
 
 ```jsx
-import { ForgeLayerButton } from 'forgelayer-react';
+import { ForgeLayerButton } from '@forgelayer/react';
 
 const PRODUCTS = [
   { id: 'PRO-001', name: 'Pro License',  price: 49.99, chain: 'ethereum', token: 'USDT' },
@@ -238,14 +238,14 @@ export default function Shop() {
 
 ## Backend
 
-This package is the frontend half. You need [`forgelayer-node`](https://github.com/forgelayer-tech/forgelayer-node) on your Express server:
+This package is the frontend half. You need [`@forgelayer/node`](https://github.com/forgelayer-tech/forgelayer-node) on your Express server:
 
 ```bash
-npm install forgelayer-node
+npm install @forgelayer/node
 ```
 
 ```js
-const { createCheckout } = require('forgelayer-node');
+const { createCheckout } = require('@forgelayer/node');
 app.use('/fl', createCheckout({ apiKey: process.env.FORGELAYER_API_KEY }).middleware());
 ```
 
