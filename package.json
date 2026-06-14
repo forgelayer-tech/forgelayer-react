@@ -1,0 +1,32 @@
+{
+  "name": "forgelayer-react",
+  "version": "1.0.0",
+  "description": "React components for crypto checkout powered by ForgeLayer",
+  "main": "src/index.js",
+  "module": "src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "files": [
+    "src/",
+    "README.md"
+  ],
+  "keywords": [
+    "forgelayer", "crypto", "payments", "bitcoin", "ethereum",
+    "usdt", "react", "checkout", "modal", "components"
+  ],
+  "author": "ForgeLayer <support@forgelayer.io>",
+  "license": "MIT",
+  "homepage": "https://github.com/forgelayer/forgelayer-react#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/forgelayer/forgelayer-react.git"
+  },
+  "bugs": {
+    "url": "https://github.com/forgelayer/forgelayer-react/issues"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0"
+  }
+}
