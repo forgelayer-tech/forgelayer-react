@@ -1,15 +1,15 @@
 {
   "name": "forgelayer-react",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "React components for crypto checkout powered by ForgeLayer",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
+      "types":   "./dist/index.d.ts",
       "import":  "./dist/index.esm.js",
-      "require": "./dist/index.cjs.js",
-      "types":   "./dist/index.d.ts"
+      "require": "./dist/index.cjs.js"
     }
   },
   "files": [
