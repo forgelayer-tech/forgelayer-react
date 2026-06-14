@@ -28,6 +28,7 @@ export function ForgeLayerButton({
   reuseAddress,
   // Backend base path (proxied or absolute)
   baseUrl        = '/fl',
+  pollInterval,
   // Button UI
   label,
   children,
@@ -38,12 +39,17 @@ export function ForgeLayerButton({
   onSuccess,
   onExpired,
   onError,
+  onOpen,
+  onClose,
 }) {
   const { modalState, order, timeLeft, error, open, close } = useForgeLayerCheckout({
     baseUrl,
+    pollInterval,
     onSuccess,
     onExpired,
     onError,
+    onOpen,
+    onClose,
   });
 
   const isOpen = modalState !== 'closed';

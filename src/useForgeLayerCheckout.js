@@ -7,7 +7,15 @@ import { useState, useRef, useCallback, useEffect } from 'react';
  * modalState values:
  *   'closed' | 'loading' | 'payment' | 'success' | 'expired' | 'error'
  */
-export function useForgeLayerCheckout({ baseUrl = '/fl', onSuccess, onExpired, onError } = {}) {
+export function useForgeLayerCheckout({
+  baseUrl      = '/fl',
+  pollInterval = 15_000,
+  onSuccess,
+  onExpired,
+  onError,
+  onOpen,
+  onClose: onCloseProp,
+} = {}) {
   const [modalState, setModalState] = useState('closed');
   const [order,      setOrder]      = useState(null);
   const [timeLeft,   setTimeLeft]   = useState(null);
@@ -30,7 +38,8 @@ export function useForgeLayerCheckout({ baseUrl = '/fl', onSuccess, onExpired, o
     setOrder(null);
     setTimeLeft(null);
     setError(null);
-  }, [stopTimers]);
+    onCloseProp?.();
+  }, [stopTimers, onCloseProp]);
 
   const startCountdown = useCallback((expiresAt) => {
     if (cdRef.current) clearInterval(cdRef.current);
@@ -60,8 +69,8 @@ export function useForgeLayerCheckout({ baseUrl = '/fl', onSuccess, onExpired, o
           onExpired?.();
         }
       } catch (_) {}
-    }, 15_000);
-  }, [baseUrl, stopTimers, onSuccess, onExpired]);
+    }, pollInterval);
+  }, [baseUrl, pollInterval, stopTimers, onSuccess, onExpired]);
 
   const open = useCallback(async (params) => {
     stopTimers();
@@ -69,6 +78,7 @@ export function useForgeLayerCheckout({ baseUrl = '/fl', onSuccess, onExpired, o
     setOrder(null);
     setTimeLeft(null);
     setError(null);
+    onOpen?.();
 
     try {
       const res  = await fetch(`${baseUrl}/create`, {
@@ -87,7 +97,7 @@ export function useForgeLayerCheckout({ baseUrl = '/fl', onSuccess, onExpired, o
       setModalState('error');
       onError?.(e);
     }
-  }, [baseUrl, stopTimers, startCountdown, startPolling, onError]);
+  }, [baseUrl, stopTimers, startCountdown, startPolling, onOpen, onError]);
 
   return { modalState, order, timeLeft, error, open, close };
 }
